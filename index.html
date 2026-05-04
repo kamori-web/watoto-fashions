@@ -7,66 +7,98 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
         body { background: #fff; color: #1a1a1a; padding-bottom: 70px; }
-      .container { max-width: 480px; margin: 0 auto; background: #fff; min-height: 100vh; }
-      .header { position: sticky; top: 0; background: #fff; z-index: 100; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #f0f0f0; }
-      .header h1 { font-size: 18px; font-weight: 700; }
-      .header-icons { display: flex; gap: 16px; font-size: 20px; cursor: pointer; }
-      .search { padding: 8px 16px; }
-      .search input { width: 100%; padding: 10px 16px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: #f8f8f8; }
-      .pills { display: flex; gap: 8px; padding: 12px 16px; overflow-x: auto; }
-      .pill { padding: 8px 16px; border: 1px solid #1a1a1a; border-radius: 20px; font-size: 13px; font-weight: 600; white-space: nowrap; background: #fff; cursor: pointer; }
-      .pill.active { background: #1a1a1a; color: #fff; }
-      .round-cats { display: flex; gap: 16px; padding: 16px; overflow-x: auto; }
-      .round-cat { text-align: center; min-width: 70px; cursor: pointer; }
-      .round-cat-img { width: 70px; height: 70px; background: #F5F5F0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 6px; font-size: 30px; }
-      .round-cat span { font-size: 11px; font-weight: 600; text-transform: uppercase; line-height: 1.2; }
-      .hero { margin: 16px; border-radius: 12px; overflow: hidden; position: relative; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); cursor: pointer; height: 180px; }
-      .hero-text { position: absolute; top: 50%; left: 16px; transform: translateY(-50%); color: #fff; }
-      .hero-text h2 { font-size: 22px; margin-bottom: 8px; }
-      .hero-btn { background: #fff; color: #1a1a1a; padding: 10px 20px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
-      .section { padding: 16px; }
-      .section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-      .section-head h2 { font-size: 18px; font-weight: 700; }
-      .section-head a { color: #007AFF; font-size: 14px; text-decoration: none; cursor: pointer; }
-      .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-      .product-card { position: relative; cursor: pointer; }
-      .product-img { width: 100%; aspect-ratio: 1; background: #f8f8f8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
-      .discount { position: absolute; top: 8px; left: 8px; background: #FF3B30; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
-      .wishlist { position: absolute; top: 8px; right: 8px; background: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-      .product-title { font-size: 13px; margin: 8px 0 4px; line-height: 1.3; height: 34px; overflow: hidden; }
-      .price-was { font-size: 12px; color: #999; text-decoration: line-through; }
-      .price-now { font-size: 15px; font-weight: 700; color: #1a1a1a; }
-      .cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-      .cat-block { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); cursor: pointer; display: flex; align-items: flex-end; padding: 12px; }
-      .cat-block span { color: #fff; font-weight: 700; font-size: 16px; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
-      .size-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 12px 0; }
-      .size-box { border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px 4px; text-align: center; position: relative; cursor: pointer; }
-      .size-box.disabled { background: #f8f8f8; color: #ccc; cursor: not-allowed; }
-      .size-box.disabled::after { content: ''; position: absolute; top: 50%; left: 10%; right: 10%; height: 1px; background: #ccc; transform: rotate(-15deg); }
-      .size-box.active { border-color: #007AFF; background: #F0F8FF; }
-      .stock { font-size: 11px; color: #FF3B30; font-weight: 600; margin-top: 4px; }
-      .trust-badges { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px 0; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; margin: 16px 0; }
-      .badge { font-size: 13px; }
-      .specs-table { width: 100%; font-size: 14px; }
-      .specs-table td { padding: 10px 0; border-bottom: 1px solid #f5f5f5; }
-      .specs-table td:first-child { color: #666; width: 40%; }
-      .sticky-bar { position: fixed; bottom: 60px; left: 0; right: 0; background: #fff; border-top: 1px solid #e0e0e0; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; max-width: 480px; margin: 0 auto; z-index: 99; }
-      .sticky-price.was { font-size: 12px; color: #999; text-decoration: line-through; }
-      .sticky-price.now { font-size: 18px; font-weight: 700; }
-      .sticky-btn { background: #25D366; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; }
-      .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e0e0e0; display: flex; justify-content: space-around; padding: 8px 0; max-width: 480px; margin: 0 auto; z-index: 100; }
-      .nav-item { text-align: center; font-size: 10px; color: #666; cursor: pointer; flex: 1; }
-      .nav-item.active { color: #007AFF; }
-      .nav-item div { font-size: 20px; margin-bottom: 2px; }
-      .page { display: none; }
-      .page.active { display: block; }
-      .admin { padding: 16px; }
-      .admin h2 { margin-bottom: 16px; }
-      .form-group { margin-bottom: 16px; }
-      .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
-      .form-group input,.form-group textarea,.form-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
-      .btn { background: #007AFF; color: #fff; border: none; padding: 12px 20px; border-radius: 6px; font-weight: 600; width: 100%; cursor: pointer; }
-      .success { background: #4CAF50; color: #fff; padding: 12px; border-radius: 6px; margin-bottom: 16px; display: none; }
+    .container { max-width: 480px; margin: 0 auto; background: #fff; min-height: 100vh; }
+    .header { position: sticky; top: 0; background: #fff; z-index: 100; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #f0f0f0; }
+    .header h1 { font-size: 18px; font-weight: 700; }
+    .header-icons { display: flex; gap: 16px; font-size: 20px; cursor: pointer; }
+    .search { padding: 8px 16px; }
+    .search input { width: 100%; padding: 10px 16px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: #f8f8f8; }
+    .pills { display: flex; gap: 8px; padding: 12px 16px; overflow-x: auto; }
+    .pill { padding: 8px 16px; border: 1px solid #1a1a1a; border-radius: 20px; font-size: 13px; font-weight: 600; white-space: nowrap; background: #fff; cursor: pointer; }
+    .pill.active { background: #1a1a1a; color: #fff; }
+    .round-cats { display: flex; gap: 16px; padding: 16px; overflow-x: auto; }
+    .round-cat { text-align: center; min-width: 70px; cursor: pointer; }
+    .round-cat-img { width: 70px; height: 70px; background: #F5F5F0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 6px; font-size: 30px; }
+    .round-cat span { font-size: 11px; font-weight: 600; text-transform: uppercase; line-height: 1.2; }
+    .hero { margin: 16px; border-radius: 12px; overflow: hidden; position: relative; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); cursor: pointer; height: 180px; }
+    .hero-text { position: absolute; top: 50%; left: 16px; transform: translateY(-50%); color: #fff; }
+    .hero-text h2 { font-size: 22px; margin-bottom: 8px; }
+    .hero-btn { background: #fff; color: #1a1a1a; padding: 10px 20px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+    .section { padding: 16px; }
+    .section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .section-head h2 { font-size: 18px; font-weight: 700; }
+    .section-head a { color: #007AFF; font-size: 14px; text-decoration: none; cursor: pointer; }
+    .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .product-card { position: relative; cursor: pointer; }
+    .product-img { width: 100%; aspect-ratio: 1; background: #f8f8f8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .discount { position: absolute; top: 8px; left: 8px; background: #FF3B30; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+    .wishlist { position: absolute; top: 8px; right: 8px; background: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .product-title { font-size: 13px; margin: 8px 0 4px; line-height: 1.3; height: 34px; overflow: hidden; }
+    .price-was { font-size: 12px; color: #999; text-decoration: line-through; }
+    .price-now { font-size: 15px; font-weight: 700; color: #1a1a1a; }
+    .filter-bar { padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
+    .filter-btn { padding: 6px 12px; border: 1px solid #e0e0e0; border-radius: 6px; background: #fff; cursor: pointer; }
+    .pagination { display: flex; justify-content: center; gap: 8px; padding: 20px 16px; }
+    .page-num { width: 32px; height: 32px; border: 1px solid #e0e0e0; border-radius: 6px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13px; }
+    .page-num.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+      
+    .img-carousel { position: relative; background: #FFFBE6; }
+    .carousel-img { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 120px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; padding: 12px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; cursor: pointer; }
+    .dot.active { background: #1a1a1a; width: 20px; border-radius: 4px; }
+    .prod-info { padding: 16px; }
+    .prod-name { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+    .size-label { font-size: 14px; font-weight: 600; margin: 16px 0 8px; }
+    .size-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+    .size-box { border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 4px; text-align: center; cursor: pointer; position: relative; font-size: 12px; }
+    .size-box.disabled { background: #f8f8f8; color: #ccc; cursor: not-allowed; }
+    .size-box.disabled::after { content: ''; position: absolute; top: 50%; left: 10%; right: 10%; height: 1px; background: #ccc; transform: rotate(-15deg); }
+    .size-box.active { border-color: #007AFF; background: #F0F8FF; }
+    .size-stock { font-size: 10px; color: #FF3B30; font-weight: 600; margin-top: 2px; }
+    .qty-row { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
+    .qty-label { font-size: 14px; font-weight: 600; }
+    .qty-box { display: flex; border: 1px solid #e0e0e0; border-radius: 6px; }
+    .qty-btn { width: 36px; height: 36px; border: none; background: #fff; font-size: 18px; cursor: pointer; }
+    .qty-input { width: 50px; border: none; border-left: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0; text-align: center; font-weight: 600; }
+    .delivery-box { background: #E8F5E9; padding: 12px; border-radius: 8px; font-size: 13px; color: #2E7D32; margin: 16px 0; display: flex; align-items: center; gap: 8px; }
+    .trust-badges { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px 0; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; margin: 16px 0; }
+    .badge { font-size: 13px; display: flex; align-items: center; gap: 6px; }
+    .tabs { display: flex; border-bottom: 1px solid #f0f0f0; margin: 16px 0; }
+    .tab { padding: 12px 16px; font-size: 14px; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; flex: 1; text-align: center; }
+    .tab.active { color: #007AFF; border-bottom-color: #007AFF; }
+    .tab-content { display: none; padding: 16px 0; }
+    .tab-content.active { display: block; }
+    .specs-table { width: 100%; font-size: 14px; }
+    .specs-table td { padding: 10px 0; border-bottom: 1px solid #f5f5f5; }
+    .specs-table td:first-child { color: #666; width: 40%; }
+    .section-title { font-size: 16px; font-weight: 700; margin: 24px 0 12px; }
+    .similar-scroll { display: flex; gap: 12px; overflow-x: auto; padding: 12px 0; }
+    .similar-card { min-width: 140px; cursor: pointer; }
+    .similar-img { width: 140px; aspect-ratio: 1; background: #f8f8f8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .similar-title { font-size: 12px; margin: 6px 0 2px; line-height: 1.3; height: 32px; overflow: hidden; }
+    .similar-price { font-size: 13px; font-weight: 700; }
+      
+    .sticky-bar { position: fixed; bottom: 60px; left: 0; right: 0; background: #fff; border-top: 1px solid #e0e0e0; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; max-width: 480px; margin: 0 auto; z-index: 99; }
+    .sticky-price { font-size: 18px; font-weight: 700; }
+    .sticky-btn { background: #007AFF; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; flex: 1; margin-left: 12px; }
+      
+    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e0e0e0; display: flex; justify-content: space-around; padding: 8px 0; max-width: 480px; margin: 0 auto; z-index: 100; }
+    .nav-item { text-align: center; font-size: 10px; color: #666; cursor: pointer; flex: 1; }
+    .nav-item.active { color: #007AFF; }
+    .nav-item div { font-size: 20px; margin-bottom: 2px; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .admin { padding: 16px; }
+    .admin h2 { margin-bottom: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .form-group input,.form-group textarea,.form-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+    .btn { background: #007AFF; color: #fff; border: none; padding: 12px 20px; border-radius: 6px; font-weight: 600; width: 100%; cursor: pointer; }
+    .footer { padding: 24px 16px; font-size: 12px; color: #666; border-top: 1px solid #f0f0f0; margin-top: 20px; }
+    .footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .footer-col h4 { font-size: 13px; margin-bottom: 8px; color: #1a1a1a; }
+    .footer-col a { display: block; color: #666; text-decoration: none; margin-bottom: 6px; }
     </style>
 </head>
 <body>
@@ -76,118 +108,136 @@
             <div class="header"><span onclick="goTo('home')" style="cursor:pointer;">☰</span><h1>Watoto Fashions</h1><div class="header-icons"><span>♡</span><span>🛍️</span></div></div>
             <div class="search"><input type="text" placeholder="What are you looking for?"></div>
             <div class="pills">
-                <div class="pill active" onclick="goTo('category')">BOYS</div>
-                <div class="pill" onclick="goTo('category')">GIRLS</div>
-                <div class="pill" onclick="goTo('category')">BABIES</div>
-                <div class="pill" onclick="goTo('category')">SHOES</div>
+                <div class="pill active" onclick="goTo('category','BOYS')">BOYS</div>
+                <div class="pill" onclick="goTo('category','GIRLS')">GIRLS</div>
+                <div class="pill" onclick="goTo('category','BABIES')">BABIES</div>
+                <div class="pill" onclick="goTo('category','SHOES')">SHOES</div>
             </div>
             <div class="round-cats">
-                <div class="round-cat" onclick="goTo('category')"><div class="round-cat-img">🔥</div><span>HOT DEALS</span></div>
-                <div class="round-cat" onclick="goTo('category')"><div class="round-cat-img">✨</div><span>NEW ARRIVALS</span></div>
-                <div class="round-cat" onclick="goTo('category')"><div class="round-cat-img">👶</div><span>BABY 0-24M</span></div>
-                <div class="round-cat" onclick="goTo('category')"><div class="round-cat-img">👧</div><span>GIRLS 2-8Y</span></div>
-                <div class="round-cat" onclick="goTo('category')"><div class="round-cat-img">👦</div><span>BOYS 2-8Y</span></div>
-                <div class="round-cat" onclick="goTo('category')"><div class="round-cat-img">👟</div><span>SHOES</span></div>
-                <div class="round-cat" onclick="goTo('category')"><div class="round-cat-img">🌙</div><span>PAJAMAS</span></div>
-                <div class="round-cat" onclick="goTo('category')"><div class="round-cat-img">🎉</div><span>PARTY WEAR</span></div>
+                <div class="round-cat" onclick="goTo('category','HOT DEALS')"><div class="round-cat-img">🔥</div><span>HOT DEALS</span></div>
+                <div class="round-cat" onclick="goTo('category','NEW')"><div class="round-cat-img">✨</div><span>NEW ARRIVALS</span></div>
+                <div class="round-cat" onclick="goTo('category','BABIES')"><div class="round-cat-img">👶</div><span>BABY 0-24M</span></div>
+                <div class="round-cat" onclick="goTo('category','GIRLS')"><div class="round-cat-img">👧</div><span>GIRLS 2-8Y</span></div>
+                <div class="round-cat" onclick="goTo('category','BOYS')"><div class="round-cat-img">👦</div><span>BOYS 2-8Y</span></div>
+                <div class="round-cat" onclick="goTo('category','SHOES')"><div class="round-cat-img">👟</div><span>SHOES</span></div>
             </div>
-            <div class="hero" onclick="goTo('category')">
+            <div class="hero" onclick="goTo('category','ALL')">
                 <div class="hero-text"><h2>New Collection</h2><button class="hero-btn">SHOP NOW</button></div>
             </div>
             <div class="section">
-                <div class="section-head"><h2>New Arrivals</h2><a onclick="goTo('category')">View All</a></div>
-                <div class="product-grid">
-                    <div class="product-card" onclick="goTo('product')">
-                        <div class="discount">30% OFF</div><div class="wishlist">♡</div><div class="product-img">👗</div>
-                        <div class="product-title">Watoto Fashions Party Dress</div>
-                        <div class="price-was">Was KSh 1,500</div><div class="price-now">Now KSh 1,050</div>
-                    </div>
-                    <div class="product-card" onclick="goTo('product')">
-                        <div class="wishlist">♡</div><div class="product-img">👕</div>
-                        <div class="product-title">Cotton T-Shirt Boys</div><div class="price-now">KSh 850</div>
-                    </div>
-                </div>
-            </div>
-            <div class="section">
-                <div class="cat-grid">
-                    <div class="cat-block" onclick="goTo('category')"><span>Casual Shoes</span></div>
-                    <div class="cat-block" onclick="goTo('category')"><span>Party Dresses</span></div>
-                    <div class="cat-block" onclick="goTo('category')"><span>School Uniforms</span></div>
-                    <div class="cat-block" onclick="goTo('category')"><span>Socks & Tights</span></div>
-                </div>
+                <div class="section-head"><h2>New Arrivals</h2><a onclick="goTo('category','ALL')">View All</a></div>
+                <div class="product-grid" id="homeGrid"></div>
             </div>
         </div>
-        
-        <!-- CATEGORY PAGE -->
+
+        <!-- CATEGORY PAGE - SCREENSHOT 1 -->
         <div id="category" class="page">
-            <div class="header"><span onclick="goTo('home')" style="cursor:pointer;">←</span><h1>BOYS 2-8Y</h1><div class="header-icons"><span>♡</span><span>🛍️</span></div></div>
-            <div style="padding: 12px 16px; font-size: 13px; color: #666;">48 Products</div>
+            <div class="header"><span onclick="goTo('home')" style="cursor:pointer;">←</span><h1 id="catTitle">SHOP ALL</h1><div class="header-icons"><span>♡</span><span>🛍️</span></div></div>
+            <div class="filter-bar">
+                <div><strong id="prodCount">48 Products</strong></div>
+                <div class="filter-btn" onclick="alert('Filters: Sort by Price, Age')">Filter ↕️</div>
+            </div>
             <div class="section">
-                <div class="product-grid">
-                    <div class="product-card" onclick="goTo('product')">
-                        <div class="discount">SAVE 20%</div><div class="wishlist">♡</div><div class="product-img">👔</div>
-                        <div class="product-title">Boys Casual Shirt</div>
-                        <div class="price-was">Was KSh 1,200</div><div class="price-now">Now KSh 960</div>
-                    </div>
-                    <div class="product-card" onclick="goTo('product')">
-                        <div class="wishlist">♡</div><div class="product-img">🩳</div>
-                        <div class="product-title">Boys Short Set</div><div class="price-now">KSh 1,100</div>
-                    </div>
-                    <div class="product-card" onclick="goTo('product')">
-                        <div class="wishlist">♡</div><div class="product-img">👖</div>
-                        <div class="product-title">Denim Jeans Boys</div><div class="price-now">KSh 1,300</div>
-                    </div>
-                    <div class="product-card" onclick="goTo('product')">
-                        <div class="discount">15% OFF</div><div class="wishlist">♡</div><div class="product-img">🧥</div>
-                        <div class="product-title">Hoodie Boys</div>
-                        <div class="price-was">Was KSh 1,800</div><div class="price-now">Now KSh 1,530</div>
-                    </div>
+                <div class="product-grid" id="productGrid"></div>
+                <div class="pagination">
+                    <div class="page-num active">1</div>
+                    <div class="page-num" onclick="alert('Page 2 coming soon')">2</div>
+                    <div class="page-num" onclick="alert('Page 3 coming soon')">3</div>
+                    <div class="page-num" onclick="alert('Next page')">→</div>
                 </div>
             </div>
         </div>
-        
-        <!-- PRODUCT PAGE -->
+
+        <!-- PRODUCT PAGE - SCREENSHOT 2 -->
         <div id="product" class="page">
-            <div class="header"><span onclick="goTo('category')" style="cursor:pointer;">←</span><h1>Shorts Solid</h1><div class="header-icons"><span>♡</span></div></div>
-            <div class="product-img" style="aspect-ratio: 1; font-size: 100px;">🩳</div>
-            <div class="section">
-                <div class="discount" style="display: inline-block; position: relative; margin-bottom: 8px;">30% OFF</div>
-                <h2 style="font-size: 20px; margin-bottom: 16px;">Shorts Solid</h2>
-                <div style="font-weight: 600; margin-bottom: 8px;">Please Select Item Size</div>
-                <div class="size-grid">
-                    <div class="size-box" onclick="pickSize(this)"><div>0-3 Months</div><div class="stock">5 LEFT</div></div>
-                    <div class="size-box disabled"><div>3-6 Months</div></div>
-                    <div class="size-box active" onclick="pickSize(this)"><div>6-9 Months</div><div class="stock">3 LEFT</div></div>
-                    <div class="size-box disabled"><div>9-12 Months</div></div>
-                    <div class="size-box" onclick="pickSize(this)"><div>12-18 Months</div><div class="stock">2 LEFT</div></div>
-                    <div class="size-box" onclick="pickSize(this)"><div>18-24 Months</div><div class="stock">4 LEFT</div></div>
-                </div>
-                <div style="background: #E8F5E9; padding: 12px; border-radius: 8px; font-size: 13px; color: #2E7D32; margin: 16px 0;">
-                    Estimated Delivery: 1-2 days within Kenol. 2-4 days countrywide
-                </div>
-                <div class="trust-badges">
-                    <div class="badge">🚚 Fast Delivery</div>
-                    <div class="badge">🔄 14 Days Easy Returns</div>
-                    <div class="badge">💵 Pay on Delivery/M-Pesa</div>
-                    <div class="badge">🎧 WhatsApp Support</div>
-                </div>
-                <h3 style="margin: 16px 0 12px;">Product Details</h3>
-                <table class="specs-table">
-                    <tr><td>Product Code</td><td>WF24003730</td></tr>
-                    <tr><td>Material</td><td>Cotton 95% Spandex 5%</td></tr>
-                    <tr><td>Design</td><td>Casual</td></tr>
-                    <tr><td>Occasion</td><td>Regular / Play</td></tr>
-                    <tr><td>Brand</td><td>Watoto Fashions</td></tr>
-                    <tr><td>Age Range</td><td>0-24 Months</td></tr>
-                    <tr><td>Gender</td><td>Unisex</td></tr>
-                </table>
+            <div class="header"><span onclick="goTo('category')" style="cursor:pointer;">←</span><h1 id="prodHeader">Product</h1><div class="header-icons"><span>♡</span><span>📤</span></div></div>
+
+            <div class="img-carousel">
+                <div class="carousel-img" id="prodImg">🧦</div>
+                <div class="carousel-dots" id="dots"></div>
             </div>
+
+            <div class="prod-info">
+                <div class="prod-name" id="prodTitle">Infant Socks 5Pack</div>
+
+                <div class="size-label">Please Select Item Size</div>
+                <div class="size-grid" id="sizeGrid"></div>
+
+                <div class="qty-row">
+                    <div class="qty-label">Quantity:</div>
+                    <div class="qty-box">
+                        <button class="qty-btn" onclick="updateQty(-1)">−</button>
+                        <input class="qty-input" id="qty" value="1" readonly>
+                        <button class="qty-btn" onclick="updateQty(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="delivery-box">✅ Estimated Delivery time: 1-3 business days after order is placed</div>
+
+                <div class="trust-badges">
+                    <div class="badge">🚚 Fast delivery</div>
+                    <div class="badge">🔄 14 days easy returns</div>
+                    <div class="badge">💵 Cash on delivery</div>
+                    <div class="badge">🎧 Customer support</div>
+                </div>
+
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab(event,'details')">Product Details</div>
+                    <div class="tab" onclick="switchTab(event,'shipping')">Shipping Information</div>
+                </div>
+
+                <div class="tab-content active" id="details">
+                    <table class="specs-table" id="specsTable"></table>
+                </div>
+
+                <div class="tab-content" id="shipping">
+                    <p style="font-size:14px;line-height:1.6;color:#666;">
+                        <strong>Delivery:</strong> 1-2 days within Kenol. 2-4 days countrywide.<br><br>
+                        <strong>Returns:</strong> 14 days easy returns. Item must be unworn with tags.<br><br>
+                        <strong>Payment:</strong> Cash on Delivery or M-Pesa available.<br><br>
+                        <strong>Click & Collect:</strong> Available at our Kenol store.
+                    </p>
+                </div>
+
+                <div class="section-title">Recently Viewed</div>
+                <div class="similar-scroll" id="recentGrid"></div>
+
+                <div class="section-title">Similar Products</div>
+                <div class="similar-scroll" id="similarGrid"></div>
+
+                <div class="footer">
+                    <div class="footer-links">
+                        <div class="footer-col">
+                            <h4>Contact with Us</h4>
+                            <a href="mailto:Leosonpeter6@gmail.com">Email Us</a>
+                            <a href="https://wa.me/254796443461">WhatsApp</a>
+                        </div>
+                        <div class="footer-col">
+                            <h4>About Us</h4>
+                            <a>Our Story</a>
+                            <a>Careers</a>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Quick Links</h4>
+                            <a>Store Locator</a>
+                            <a>Help & FAQ</a>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Help</h4>
+                            <a>Shipping Information</a>
+                            <a>Returns</a>
+                        </div>
+                    </div>
+                    <div style="text-align:center;color:#999;">© 2026 Watoto Fashions</div>
+                </div>
+            </div>
+
             <div class="sticky-bar">
-                <div class="sticky-price"><div class="was">Was KSh 1,200</div><div class="now">Now KSh 850</div></div>
-                <button class="sticky-btn" onclick="orderWA()">ORDER VIA WHATSAPP</button>
+                <div class="sticky-price" id="prodPrice">KSh 850</div>
+                <button class="sticky-btn" onclick="orderWA()">ADD TO BAG</button>
             </div>
         </div>
-        
+
         <!-- ADMIN PAGE -->
         <div id="admin" class="page">
             <div class="header"><span onclick="goTo('home')" style="cursor:pointer;">←</span><h1>Admin Panel</h1></div>
@@ -197,105 +247,118 @@
                 <form action="https://formsubmit.co/Leosonpeter6@gmail.com" method="POST">
                     <input type="hidden" name="_subject" value="New Product - Watoto Fashions">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    
-                    <div class="form-group">
-                        <label>Product Name</label>
-                        <input type="text" name="Product_Name" required placeholder="Shorts Solid">
-                    </div>
-                    <div class="form-group">
-                        <label>Was Price - KSh</label>
-                        <input type="number" name="Was_Price" placeholder="1200">
-                    </div>
-                    <div class="form-group">
-                        <label>Now Price - KSh</label>
-                        <input type="number" name="Now_Price" required placeholder="850">
-                    </div>
-                    <div class="form-group">
-                        <label>Category</label>
-                        <select name="Category" required>
-                            <option>BOYS 2-8Y</option>
-                            <option>GIRLS 2-8Y</option>
-                            <option>BABY 0-24M</option>
-                            <option>SHOES</option>
-                            <option>PAJAMAS</option>
-                            <option>PARTY WEAR</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Sizes & Stock</label>
-                        <textarea name="Sizes_Stock" rows="4" placeholder="0-3 Months: 5&#10;6-9 Months: 3&#10;12-18 Months: 2"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Product Code</label>
-                        <input type="text" name="Product_Code" placeholder="WF24003730">
-                    </div>
+                    <div class="form-group"><label>Product Name</label><input type="text" name="Product_Name" required></div>
+                    <div class="form-group"><label>Was Price - KSh</label><input type="number" name="Was_Price"></div>
+                    <div class="form-group"><label>Now Price - KSh</label><input type="number" name="Now_Price" required></div>
+                    <div class="form-group"><label>Category</label><select name="Category" required><option>BOYS</option><option>GIRLS</option><option>BABIES</option><option>SHOES</option></select></div>
+                    <div class="form-group"><label>Sizes & Stock</label><textarea name="Sizes_Stock" rows="4" placeholder="NB: 5&#10;0-3M: 3&#10;3-6M: 2"></textarea></div>
                     <button type="submit" class="btn">Send to Business Owner</button>
                 </form>
             </div>
         </div>
-        
+
         <!-- BOTTOM NAV -->
         <div class="bottom-nav">
             <div class="nav-item active" onclick="goTo('home')"><div>🏠</div>Home</div>
-            <div class="nav-item" onclick="goTo('category')"><div>📂</div>Category</div>
-            <div class="nav-item" onclick="goTo('category')"><div>🔥</div>Offers</div>
-            <div class="nav-item" onclick="goTo('category')"><div>♡</div>Wishlist</div>
+            <div class="nav-item" onclick="goTo('category','ALL')"><div>📂</div>Shop</div>
+            <div class="nav-item" onclick="goTo('category','HOT DEALS')"><div>🔥</div>Offers</div>
+            <div class="nav-item" onclick="alert('Wishlist coming soon')"><div>♡</div>Wishlist</div>
             <div class="nav-item" id="adminBtn" onclick="goTo('admin')"><div>👤</div>Admin</div>
         </div>
     </div>
-    
+
     <script>
-        // CONFIG - ALREADY SET
         const OWNER_EMAIL = "Leosonpeter6@gmail.com";
         const OWNER_WHATSAPP = "254796443461";
-        
-        // NAVIGATION SYSTEM - ALL BUTTONS WORKING
-        function goTo(pageId) {
+
+        const PRODUCTS = [
+            {id:1, name:"Infant Socks 5Pack", was:0, now:850, img:"🧦", imgs:["🧦","⚪","⚫"], cat:"BABIES", sizes:{'NB':5,'0-3M':3,'3-6M':4,'6-12M':2,'12-18M':1,'18-24M':3,'2-3Y':2}, material:"80% Cotton 18% Nylon 2% Elastane", design:"Casual", brand:"Watoto Fashions"},
+            {id:2, name:"Party Dress Girls", was:1500, now:1050, img:"👗", imgs:["👗","🎀","✨"], cat:"GIRLS", discount:"30% OFF", sizes:{'2-3Y':3,'3-4Y':2,'4-5Y':4,'5-6Y':1}, material:"Cotton 95% Spandex 5%", design:"Party", brand:"Watoto Fashions"},
+            {id:3, name:"Cotton T-Shirt Boys", was:0, now:850, img:"👕", imgs:["👕","👕"], cat:"BOYS", sizes:{'2-3Y':5,'3-4Y':3,'4-5Y':2,'5-6Y':4}, material:"100% Cotton", design:"Casual", brand:"Watoto Fashions"},
+            {id:4, name:"Boys Casual Shirt", was:1200, now:960, img:"👔", imgs:["👔","👔","👔"], cat:"BOYS", discount:"20% OFF", sizes:{'2-3Y':3,'3-4Y':0,'4-5Y':5,'5-6Y':2}, material:"Cotton Blend", design:"Casual", brand:"Watoto Fashions"},
+            {id:5, name:"Boys Short Set", was:0, now:1100, img:"🩳", imgs:["🩳","🩳"], cat:"BOYS", sizes:{'2-3Y':4,'3-4Y':2,'4-5Y':3,'5-6Y':1}, material:"Cotton 90% Spandex 10%", design:"Casual", brand:"Watoto Fashions"},
+            {id:6, name:"Denim Jeans Boys", was:0, now:1300, img:"👖", imgs:["👖","👖","👖"], cat:"BOYS", sizes:{'2-3Y':2,'3-4Y':5,'4-5Y':1,'5-6Y':3}, material:"Denim", design:"Casual", brand:"Watoto Fashions"},
+            {id:7, name:"Hoodie Boys", was:1800, now:1530, img:"🧥", imgs:["🧥","🧥","🧥"], cat:"BOYS", discount:"15% OFF", sizes:{'2-3Y':3,'3-4Y':4,'4-5Y':2,'5-6Y':1}, material:"Cotton Fleece", design:"Casual", brand:"Watoto Fashions"},
+            {id:8, name:"Baby Romper Unisex", was:0, now:950, img:"👶", imgs:["👶","👶","👶"], cat:"BABIES", sizes:{'NB':4,'0-3M':3,'3-6M':2,'6-12M':5}, material:"100% Cotton", design:"Casual", brand:"Watoto Fashions"},
+            {id:9, name:"Girls Skirt Pink", was:1100, now:880, img:"👚", imgs:["👚","👚","👚"], cat:"GIRLS", discount:"20% OFF", sizes:{'2-3Y':4,'3-4Y':3,'4-5Y':2,'5-6Y':1}, material:"Cotton", design:"Casual", brand:"Watoto Fashions"},
+            {id:10, name:"Casual Shoes Kids", was:2200, now:1650, img:"👟", imgs:["👟","👟","👟"], cat:"SHOES", discount:"25% OFF", sizes:{'18':2,'19':3,'20':4,'21':1,'22':2}, material:"Synthetic", design:"Casual", brand:"Watoto Fashions"},
+            {id:11, name:"Pajama Set Cotton", was:0, now:1200, img:"🌙", imgs:["🌙","🌙","🌙"], cat:"PAJAMAS", sizes:{'2-3Y':5,'3-4Y':3,'4-5Y':2,'5-6Y':4}, material:"100% Cotton", design:"Sleepwear", brand:"Watoto Fashions"},
+            {id:12, name:"Baby Shoes Soft", was:900, now:720, img:"👟", imgs:["👟","👟","👟"], cat:"BABIES", discount:"20% OFF", sizes:{'NB':4,'0-3M':3,'3-6M':2,'6-12M':1}, material:"Soft Fabric", design:"Casual", brand:"Watoto Fashions"},
+        ];
+
+        let currentProduct = PRODUCTS[0];
+        let currentQty = 1;
+        let selectedSize = null;
+        let currentImgIdx = 0;
+        let currentCategory = 'ALL';
+
+        function goTo(pageId, cat = 'ALL') {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             const navs = document.querySelectorAll('.nav-item');
-            if(pageId === 'home') navs[0].classList.add('active');
-            if(pageId === 'category') navs[1].classList.add('active');
+            if(pageId === 'home') { navs[0].classList.add('active'); loadHome(); }
+            if(pageId === 'category') { navs[1].classList.add('active'); currentCategory = cat; loadProducts(cat); }
             window.scrollTo(0, 0);
         }
-        
-        function pickSize(el) {
-            if (el.classList.contains('disabled')) return;
-            document.querySelectorAll('.size-box').forEach(s => s.classList.remove('active'));
-            el.classList.add('active');
-        }
-        
-        function orderWA() {
-            const size = document.querySelector('.size-box.active div')?.textContent || 'Not selected';
-            if (size === 'Not selected') {
-                alert('Please select a size first!');
-                return;
-            }
-            const msg = Hi Watoto Fashions! I want to order:\n\nProduct: Shorts Solid\nSize: ${size}\nPrice: KSh 850\n\nDeliver to: [Your Location];
-            
-            // Send copy to business owner email
-            fetch(https://formsubmit.co/ajax/${OWNER_EMAIL}, {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    _subject: "New WhatsApp Order - Watoto Fashions",
-                    Product: "Shorts Solid",
-                    Size: size,
-                    Price: "KSh 850"
-                })
+
+        function loadHome() {
+            const grid = document.getElementById('homeGrid');
+            grid.innerHTML = '';
+            PRODUCTS.slice(0,4).forEach(p => {
+                grid.innerHTML += `
+                    <div class="product-card" onclick="showProduct(${p.id})">
+                        ${p.discount? <div class="discount">${p.discount}</div> : ''}
+                        <div class="wishlist">♡</div>
+                        <div class="product-img">${p.img}</div>
+                        <div class="product-title">${p.name}</div>
+                        ${p.was > 0? <div class="price-was">Was KSh ${p.was}</div> : ''}
+                        <div class="price-now">${p.was > 0? 'Now ' : ''}KSh ${p.now}</div>
+                    </div>
+                `;
             });
-            
-            window.open(https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(msg)}, '_blank');
         }
-        
-        // HIDE ADMIN BUTTON UNLESS URL HAS #admin
-        if(window.location.hash === '#admin') {
-            goTo('admin');
-        } else {
-            document.getElementById('adminBtn').style.display = 'none';
+
+        function loadProducts(cat) {
+            document.getElementById('catTitle').textContent = cat;
+            const filtered = cat === 'ALL'? PRODUCTS : cat === 'HOT DEALS'? PRODUCTS.filter(p => p.discount) : cat === 'NEW'? PRODUCTS.slice(0,6) : PRODUCTS.filter(p => p.cat === cat);
+            document.getElementById('prodCount').textContent = ${filtered.length} Products;
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            filtered.forEach(p => {
+                grid.innerHTML += `
+                    <div class="product-card" onclick="showProduct(${p.id})">
+                        ${p.discount? <div class="discount">${p.discount}</div> : ''}
+                        <div class="wishlist">♡</div>
+                        <div class="product-img">${p.img}</div>
+                        <div class="product-title">${p.name}</div>
+                        ${p.was > 0? <div class="price-was">Was KSh ${p.was}</div> : ''}
+                        <div class="price-now">${p.was > 0? 'Now ' : ''}KSh ${p.now}</div>
+                    </div>
+                `;
+            });
         }
-    </script>
-</body>
-</html>
+
+        function showProduct(id) {
+            currentProduct = PRODUCTS.find(p => p.id === id);
+            currentQty = 1;
+            selectedSize = null;
+            currentImgIdx = 0;
+            document.getElementById('prodHeader').textContent = currentProduct.name;
+            document.getElementById('prodTitle').textContent = currentProduct.name;
+            document.getElementById('prodImg').textContent = currentProduct.imgs[0];
+            document.getElementById('prodPrice').textContent = KSh ${currentProduct.now};
+            document.getElementById('qty').value = 1;
+
+            const dots = document.getElementById('dots');
+            dots.innerHTML = '';
+            currentProduct.imgs.forEach((img, i) => {
+                dots.innerHTML += <div class="dot ${i===0?'active':''}" onclick="changeImg(${i})"></div>;
+            });
+
+            const sizeGrid = document.getElementById('sizeGrid');
+            sizeGrid.innerHTML = '';
+            Object.keys(currentProduct.sizes).forEach(size => {
+                const stock = currentProduct.sizes[size];
+                const disabled = stock === 0? 'disabled' : '';
+                sizeGrid.innerHTML += `
