@@ -9,51 +9,51 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body { background: #FFF9F0; color: #333; }
 
-  .header { background: white; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-  .logo { text-align: center; padding: 5px 0 15px 0; }
-  .nav { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-  .nav a { text-decoration: none; color: #555; padding: 8px 14px; border-radius: 20px; font-weight: 500; font-size: 14px; }
-  .nav a.active,.nav a:hover { background: #FF6B6B; color: white; }
+   .header { background: white; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+   .logo { text-align: center; padding: 5px 0 15px 0; }
+   .nav { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+   .nav a { text-decoration: none; color: #555; padding: 8px 14px; border-radius: 20px; font-weight: 500; font-size: 14px; }
+   .nav a.active,.nav a:hover { background: #FF6B6B; color: white; }
 
-  .breadcrumb { padding: 15px 5%; font-size: 14px; color: #666; }
-  .breadcrumb a { color: #FF6B6B; text-decoration: none; }
+   .breadcrumb { padding: 15px 5%; font-size: 14px; color: #666; }
+   .breadcrumb a { color: #FF6B6B; text-decoration: none; }
 
-  .product-container { padding: 20px 5%; display: grid; grid-template-columns: 1fr; gap: 25px; }
-  .product-image { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-  .product-image img { width: 100%; height: 400px; object-fit: cover; display: block; }
+   .product-container { padding: 20px 5%; display: grid; grid-template-columns: 1fr; gap: 25px; }
+   .product-image { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+   .product-image img { width: 100%; height: 400px; object-fit: cover; display: block; }
 
-  .product-details { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-  .product-title { font-size: 24px; font-weight: 700; margin-bottom: 10px; color: #333; }
-  .product-price { font-size: 28px; color: #FF6B6B; font-weight: 700; margin-bottom: 20px; }
-  .old-price { text-decoration: line-through; color: #999; font-size: 18px; margin-left: 10px; }
+   .product-details { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+   .product-title { font-size: 24px; font-weight: 700; margin-bottom: 10px; color: #333; }
+   .product-price { font-size: 28px; color: #FF6B6B; font-weight: 700; margin-bottom: 20px; }
+   .old-price { text-decoration: line-through; color: #999; font-size: 18px; margin-left: 10px; }
 
-  .label { font-weight: 600; margin: 20px 0 10px 0; color: #333; }
-  .sizes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-  .size-btn { padding: 10px 18px; border: 2px solid #FFE66D; border-radius: 12px; background: white; cursor: pointer; font-weight: 600; transition: 0.3s; }
-  .size-btn:hover { border-color: #FF6B6B; }
-  .size-btn.active { background: #FF6B6B; color: white; border-color: #FF6B6B; }
-  .size-btn.disabled { opacity: 0.4; cursor: not-allowed; background: #f5f5f5; }
+   .label { font-weight: 600; margin: 20px 0 10px 0; color: #333; }
+   .sizes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+   .size-btn { padding: 10px 18px; border: 2px solid #FFE66D; border-radius: 12px; background: white; cursor: pointer; font-weight: 600; transition: 0.3s; }
+   .size-btn:hover { border-color: #FF6B6B; }
+   .size-btn.active { background: #FF6B6B; color: white; border-color: #FF6B6B; }
+   .size-btn.disabled { opacity: 0.4; cursor: not-allowed; background: #f5f5f5; }
 
-  .quantity { display: flex; align-items: center; gap: 15px; margin: 20px 0; }
-  .qty-btn { width: 40px; height: 40px; border: 2px solid #FFE66D; background: white; border-radius: 10px; font-size: 20px; cursor: pointer; font-weight: 700; }
-  .qty-btn:hover { background: #FFE66D; }
-  .qty-input { width: 60px; height: 40px; text-align: center; border: 2px solid #FFE66D; border-radius: 10px; font-size: 16px; font-weight: 600; }
+   .quantity { display: flex; align-items: center; gap: 15px; margin: 20px 0; }
+   .qty-btn { width: 40px; height: 40px; border: 2px solid #FFE66D; background: white; border-radius: 10px; font-size: 20px; cursor: pointer; font-weight: 700; }
+   .qty-btn:hover { background: #FFE66D; }
+   .qty-input { width: 60px; height: 40px; text-align: center; border: 2px solid #FFE66D; border-radius: 10px; font-size: 16px; font-weight: 600; }
 
-  .buy-btn { width: 100%; background: #25D366; color: white; padding: 16px; border: none; border-radius: 15px; font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
-  .buy-btn:hover { background: #1DA851; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
-  .buy-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
+   .buy-btn { width: 100%; background: #25D366; color: white; padding: 16px; border: none; border-radius: 15px; font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+   .buy-btn:hover { background: #1DA851; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+   .buy-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
 
-  .info-box { background: #D1F2EB; padding: 15px; border-radius: 12px; margin-top: 20px; font-size: 14px; }
-  .info-item { display: flex; align-items: center; gap: 8px; margin: 8px 0; color: #16A085; }
+   .info-box { background: #D1F2EB; padding: 15px; border-radius: 12px; margin-top: 20px; font-size: 14px; }
+   .info-item { display: flex; align-items: center; gap: 8px; margin: 8px 0; color: #16A085; }
 
-  .description { margin-top: 25px; padding-top: 25px; border-top: 1px solid #eee; }
-  .description h3 { font-size: 18px; margin-bottom: 10px; }
-  .description p { color: #666; line-height: 1.6; }
+   .description { margin-top: 25px; padding-top: 25px; border-top: 1px solid #eee; }
+   .description h3 { font-size: 18px; margin-bottom: 10px; }
+   .description p { color: #666; line-height: 1.6; }
 
-  .footer { background: #333; color: white; padding: 30px 5% 20px 5%; margin-top: 40px; text-align: center; }
+   .footer { background: #333; color: white; padding: 30px 5% 20px 5%; margin-top: 40px; text-align: center; }
 
     @media (min-width: 768px) {
-    .product-container { grid-template-columns: 1fr 1fr; }
+     .product-container { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -138,7 +138,7 @@
         availableSizes: ["0-3M", "3-6M", "6-12M"],
         desc: "Super soft cotton socks. 5 pairs per pack. Anti-slip grip. Perfect for 0-2 years."
       },
-      tshirt: {
+      "t-shirt": {
         name: "Baby T-Shirt Blue",
         price: 800,
         oldPrice: null,
@@ -186,6 +186,8 @@
 
       if (!currentProduct) {
         document.getElementById('product-name').textContent = 'Product Not Found';
+        document.getElementById('product-price').textContent = 'KSh 0';
+        document.getElementById('product-img').alt = 'Not Found';
         return;
       }
 
@@ -202,6 +204,7 @@
       }
 
       const sizeContainer = document.getElementById('size-options');
+      sizeContainer.innerHTML = '';
       currentProduct.sizes.forEach(size => {
         const btn = document.createElement('button');
         btn.className = 'size-btn';
