@@ -4,33 +4,282 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infant Socks 5Pack - Watoto Fashions</title>
-</head>
-    <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infant Socks 5Pack - Watoto Fashions</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: Arial, sans-serif;
-            ...
+            background: #ffffff;
+        }
+        .header {
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .back-btn {
+            font-size: 24px;
+            text-decoration: none;
+            color: #333;
+        }
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .product-image {
+            width: 100%;
+            height: 400px;
+            background: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .product-title {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .size-section {
+            margin: 25px 0;
+        }
+        .size-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .size-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .size-btn {
+            padding: 12px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .size-btn:hover {
+            border-color: #3498db;
+        }
+        .quantity-section {
+            margin: 25px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .qty-label {
+            font-size: 14px;
+            color: #666;
+        }
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        .qty-btn {
+            padding: 10px 15px;
+            background: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .qty-input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            font-size: 16px;
+            padding: 10px 0;
+        }
+        .delivery-info {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #2e7d32;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #666;
+        }
+        .section-divider {
+            border-top: 1px solid #eee;
+            margin: 25px 0;
+            padding-top: 25px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            font-size: 14px;
+        }
+        .detail-item {
+            color: #666;
+        }
+        .detail-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .sticky-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price-display {
+            font-size: 22px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .add-to-cart {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-to-cart:hover {
+            background: #2ecc71;
+        }
+        .spacer {
+            height: 80px;
         }
     </style>
 </head>
 <body>
-...
-<body>
-    <h1>Infant Socks 5Pack</h1>
-    <a href="index.html">← Rudi Home</a> | <a href="shop.html">← Rudi Shop</a>
-    
-    <h2>QAR 24.00</h2>
-    <p>Socks 5 za watoto wachanga. Cotton laini 100%.</p>
-    <p><strong>Rangi:</strong> White, Grey, Blue</p>
-    <p><strong>Sizes:</strong> 0-6 months, 6-12 months</p>
-    
-    <button>Add to Cart</button>
-    <br><br>
-    <a href="admin/admin.html">Admin Panel</a>
+    <!-- Header -->
+    <div class="header">
+        <a href="shop.html" class="back-btn">←</a>
+        <div class="logo">Watoto Fashions</div>
+        <div style="width: 24px;"></div>
+    </div>
+
+    <!-- Product Image -->
+    <div class="product-image">
+        Socks Image Here
+    </div>
+
+    <div class="container">
+        <!-- Title -->
+        <h1 class="product-title">Infant Socks 5Pack</h1>
+
+        <!-- Sizes -->
+        <div class="size-section">
+            <div class="size-label">Please Select Item Size</div>
+            <div class="size-grid">
+                <button class="size-btn">NB</button>
+                <button class="size-btn">0-3M</button>
+                <button class="size-btn">3-6M</button>
+                <button class="size-btn">6-12M</button>
+                <button class="size-btn">12-18M</button>
+                <button class="size-btn">18-24M</button>
+                <button class="size-btn">2-3Y</button>
+            </div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="quantity-section">
+            <span class="qty-label">Quantity:</span>
+            <div class="qty-controls">
+                <button class="qty-btn">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button class="qty-btn">+</button>
+            </div>
+        </div>
+
+        <!-- Delivery -->
+        <div class="delivery-info">
+            ✓ Estimated Delivery time: 1-3 business days after order is placed
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <div class="feature">🚚 Fast delivery</div>
+            <div class="feature">↩️ 14 days easy returns</div>
+            <div class="feature">💵 Cash on delivery</div>
+            <div class="feature">💬 Customer support</div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="section-divider">
+            <h2 class="section-title">Product Details</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <strong>Material</strong>
+                    80% Cotton 18% Nylon 2% Elastane
+                </div>
+                <div class="detail-item">
+                    <strong>Design</strong>
+                    Casual
+                </div>
+                <div class="detail-item">
+                    <strong>Occasion</strong>
+                    Regular
+                </div>
+                <div class="detail-item">
+                    <strong>Brand</strong>
+                    Watoto Fashions
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spacer for sticky footer -->
+    <div class="spacer"></div>
+
+    <!-- Sticky Add to Cart -->
+    <div class="sticky-footer">
+        <div class="price-display">QAR 24.00</div>
+        <button class="add-to-cart">ADD TO BAG</button>
+    </div>
+
 </body>
 </html>
