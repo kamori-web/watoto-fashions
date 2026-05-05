@@ -4,19 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    window.CMS_MANUAL_INIT = true
-    const { CMS, initCMS: init } = window
-    init({
+    CMS.init({
       config: {
         backend: {
           name: 'github',
           repo: 'kamori-web/watoto-fashions',
           branch: 'main',
-          base_url: 'https://api.github.com',
           auth_endpoint: 'https://github-oauth-login.netlify.app'
         },
         media_folder: 'images',
