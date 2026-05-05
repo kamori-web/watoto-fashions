@@ -3,60 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watoto Fashions</title>
-</head>
+    <title>Watoto Fashions - Shop Newborn Essentials</title>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 20px;
-        background: #f5f5f5;
-    }
-    h1 {
-        color: #2c3e50;
-        text-align: center;
-        border-bottom: 3px solid #3498db;
-        padding-bottom: 10px;
-    }
-    h2 {
-        color: #e74c3c;
-    }
-    a {
-        color: #3498db;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    a:hover {
-        color: #e74c3c;
-    }
-    button {
-        background: #27ae60;
-        color: white;
-        border: none;
-        padding: 12px 30px;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    button:hover {
-        background: #2ecc71;
-    }
-    .product-card {
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        margin: 15px 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-</style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+        }
+        .header {
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .search-bar {
+            margin: 15px auto;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 20px;
+            background: #f8f8f8;
+            overflow-x: auto;
+        }
+        .nav-tabs a {
+            padding: 8px 20px;
+            background: white;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .nav-tabs a.active {
+            background: #3498db;
+            color: white;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 30px;
+        }
+        .hero-banner h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .hero-banner button {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .category-card {
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+        .category-card h3 {
+            color: #2c3e50;
+            font-size: 18px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .product-img {
+            width: 100%;
+            height: 180px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-name {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+    </style>
+</head>
 <body>
-    <h1>Watoto Fashions</h1>
-    <p>Karibu kwa nguo za watoto</p>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">Watoto Fashions</div>
+    </div>
 
-    <a href="shop.html">SHOP NOW</a>
-    <br><br>
-    <a href="product.html">Ona Socks</a>
-    
+    <!-- Search -->
+    <div class="search-bar">
+        <input type="text" placeholder="What are you looking for?">
+    </div>
+
+    <!-- Nav Tabs -->
+    <div class="nav-tabs">
+        <a href="shop.html">CLOTHING</a>
+        <a href="shop.html">NURSERY</a>
+        <a href="shop.html" class="active">FOOTWEAR & HOSIERY</a>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <h1>FOOTWEAR COLLECTION</h1>
+        <p>Best quality for your little ones</p>
+        <a href="shop.html"><button>SHOP NOW</button></a>
+    </div>
+
+    <!-- New Arrivals -->
+    <div class="section">
+        <h2 class="section-title">New Arrivals</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img">Image</div>
+                <div class="product-info">
+                    <div class="product-name">Infant Socks 5Pack</div>
+                    <div class="product-price">QAR 24.00</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">Image</div>
+                <div class="product-info">
+                    <div class="product-name">Baby Shoes</div>
+                    <div class="product-price">QAR 45.00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="section">
+        <div class="category-grid">
+            <a href="shop.html" style="text-decoration: none;">
+                <div class="category-card">
+                    <h3>Casual Shoes</h3>
+                </div>
+            </a>
+            <a href="shop.html" style="text-decoration: none;">
+                <div class="category-card">
+                    <h3>Sports Shoes</h3>
+                </div>
+            </a>
+            <a href="shop.html" style="text-decoration: none;">
+                <div class="category-card">
+                    <h3>Tights</h3>
+                </div>
+            </a>
+            <a href="product.html" style="text-decoration: none;">
+                <div class="category-card">
+                    <h3>Socks</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Stay Social</strong></p>
+        <p style="margin: 15px 0;">
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">WhatsApp</a>
+        </p>
+        <p><a href="admin/admin.html">Admin Panel</a></p>
+        <p style="margin-top: 20px; font-size: 12px;">© 2026 Watoto Fashions. All rights reserved.</p>
+    </div>
+
 </body>
 </html>
