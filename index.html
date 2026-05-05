@@ -1,242 +1,182 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watoto Fashions - Shop Newborn Essentials</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #ffffff;
-        }
-        .header {
-            background: white;
-            padding: 15px 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .search-bar {
-            margin: 15px auto;
-            max-width: 600px;
-            padding: 0 20px;
-        }
-        .search-bar input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            font-size: 16px;
-        }
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px 20px;
-            background: #f8f8f8;
-            overflow-x: auto;
-        }
-        .nav-tabs a {
-            padding: 8px 20px;
-            background: white;
-            border-radius: 20px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-        .nav-tabs a.active {
-            background: #3498db;
-            color: white;
-        }
-        .hero-banner {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 30px;
-        }
-        .hero-banner h1 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-        .hero-banner button {
-            background: #27ae60;
-            color: white;
-            border: none;
-            padding: 12px 40px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 15px;
-        }
-        .section {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section-title {
-            font-size: 22px;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .category-card {
-            background: #f8f8f8;
-            border-radius: 10px;
-            padding: 40px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .category-card:hover {
-            transform: scale(1.05);
-        }
-        .category-card h3 {
-            color: #2c3e50;
-            font-size: 18px;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .product-img {
-            width: 100%;
-            height: 180px;
-            background: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-        }
-        .product-info {
-            padding: 15px;
-        }
-        .product-name {
-            font-size: 14px;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .product-price {
-            font-size: 16px;
-            font-weight: bold;
-            color: #e74c3c;
-        }
-        .footer {
-            background: #2c3e50;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        .footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watoto Fashions - Cute Clothes for Your Little Ones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #FFF9F0; color: #333; }
+    
+    /* Header */
+    .header { background: white; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .logo { text-align: center; padding: 5px 0 15px 0; }
+    .search { margin: 0 0 15px 0; }
+    .search input { width: 100%; padding: 12px 20px; border: 2px solid #FFE66D; border-radius: 25px; font-size: 16px; background: #FFFDF7; }
+    .search input:focus { outline: none; border-color: #FF6B6B; }
+    .nav { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .nav a { text-decoration: none; color: #555; padding: 8px 14px; border-radius: 20px; font-weight: 500; font-size: 14px; transition: 0.3s; }
+    .nav a.active, .nav a:hover { background: #FF6B6B; color: white; }
+    
+    /* Hero Section */
+    .hero { background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%); padding: 50px 5%; text-align: center; color: white; }
+    .hero h1 { font-size: 32px; margin-bottom: 12px; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+    .hero p { font-size: 18px; margin-bottom: 25px; opacity: 0.95; }
+    .btn { background: #4ECDC4; color: white; padding: 14px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(78,205,196,0.4); transition: 0.3s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(78,205,196,0.6); }
+    
+    /* Section */
+    .section { padding: 35px 5%; }
+    .section-title { text-align: center; font-size: 26px; color: #333; margin-bottom: 25px; font-weight: 700; }
+    
+    /* Categories */
+    .categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .cat-card { border-radius: 20px; padding: 20px 10px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.06); text-decoration: none; transition: 0.3s; }
+    .cat-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .cat-card img { width: 60px; height: 60px; margin-bottom: 8px; }
+    .cat-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .cat-card p { font-size: 12px; color: #666; }
+    
+    /* Products */
+    .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .product { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+    .product:hover { transform: translateY(-3px); }
+    .product img { width: 100%; height: 180px; object-fit: cover; background: #f5f5f5; }
+    .product-info { padding: 12px; }
+    .product h4 { font-size: 14px; color: #333; margin-bottom: 5px; font-weight: 600; }
+    .price { color: #FF6B6B; font-weight: 700; font-size: 16px; }
+    
+    /* Footer */
+    .footer { background: #333; color: white; text-align: center; padding: 25px 5%; margin-top: 30px; }
+    .footer p { font-size: 14px; opacity: 0.8; }
+    
+    @media (min-width: 768px) {
+      .categories { grid-template-columns: repeat(3, 1fr); }
+      .products { grid-template-columns: repeat(4, 1fr); }
+      .hero h1 { font-size: 42px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <div class="logo">Watoto Fashions</div>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <svg width="220" height="60" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFE66D;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <circle cx="25" cy="30" r="20" fill="url(#grad)"/>
+        <path d="M25 18 Q20 18 22 18 L18 32 Q18 36 22 36 L28 36 Q32 36 32 32 L32 22 Q30 18 25 18 Z M22 40 L22 45 Q22 48 25 48 Q28 48 28 45 L28 40" fill="white"/>
+        <text x="55" y="28" font-family="Poppins, sans-serif" font-size="22" font-weight="700" fill="#FF6B6B">Watoto</text>
+        <text x="55" y="48" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#4ECDC4" letter-spacing="2px">FASHIONS</text>
+      </svg>
     </div>
-
-    <!-- Search -->
-    <div class="search-bar">
-        <input type="text" placeholder="What are you looking for?">
+    <div class="search">
+      <input type="text" placeholder="Tafuta romper, dress, shoes..." />
     </div>
-
-    <!-- Nav Tabs -->
-    <div class="nav-tabs">
-        <a href="shop.html">CLOTHING</a>
-        <a href="shop.html">NURSERY</a>
-        <a href="shop.html" class="active">FOOTWEAR & HOSIERY</a>
+    <div class="nav">
+      <a href="index.html" class="active">HOME</a>
+      <a href="shop.html">SHOP ALL</a>
+      <a href="shop.html#boys">BOYS</a>
+      <a href="shop.html#girls">GIRLS</a>
+      <a href="shop.html#baby">BABY</a>
     </div>
+  </div>
 
-    <!-- Hero Banner -->
-    <div class="hero-banner">
-        <h1>FOOTWEAR COLLECTION</h1>
-        <p>Best quality for your little ones</p>
-        <a href="shop.html"><button>SHOP NOW</button></a>
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Nguo Nzuri Za Watoto</h1>
+    <p>Quality, cute & affordable clothes for 0-12 years</p>
+    <a href="shop.html" class="btn">SHOP NOW</a>
+  </div>
+
+  <!-- Shop By Category -->
+  <div class="section">
+    <h2 class="section-title">Shop By Category</h2>
+    <div class="categories">
+      
+      <a href="shop.html#newborn" class="cat-card" style="background:#FFF3CD;">
+        <img src="https://img.icons8.com/color/96/baby.png" alt="Newborn">
+        <h3 style="color:#E67E22;">Newborn</h3>
+        <p>0-6 Months</p>
+      </a>
+
+      <a href="shop.html#baby" class="cat-card" style="background:#D1F2EB;">
+        <img src="https://img.icons8.com/color/96/teddy-bear.png" alt="Baby">
+        <h3 style="color:#16A085;">Baby</h3>
+        <p>6-24 Months</p>
+      </a>
+
+      <a href="shop.html#boys" class="cat-card" style="background:#D6EAF8;">
+        <img src="https://img.icons8.com/color/96/boy.png" alt="Boys">
+        <h3 style="color:#2E86C1;">Boys</h3>
+        <p>2-12 Years</p>
+      </a>
+
+      <a href="shop.html#girls" class="cat-card" style="background:#FADBD8;">
+        <img src="https://img.icons8.com/color/96/girl.png" alt="Girls">
+        <h3 style="color:#E74C3C;">Girls</h3>
+        <p>2-12 Years</p>
+      </a>
+
+      <a href="shop.html#occasions" class="cat-card" style="background:#E8DAEF;">
+        <img src="https://img.icons8.com/color/96/birthday-cake.png" alt="Occasions">
+        <h3 style="color:#8E44AD;">Occasions</h3>
+        <p>Party & Baptism</p>
+      </a>
+
+      <a href="shop.html#accessories" class="cat-card" style="background:#FCF3CF;">
+        <img src="https://img.icons8.com/color/96/baby-socks.png" alt="Accessories">
+        <h3 style="color:#F39C12;">Accessories</h3>
+        <p>Socks, Hats, Bibs</p>
+      </a>
+
     </div>
+  </div>
 
-    <!-- New Arrivals -->
-    <div class="section">
-        <h2 class="section-title">New Arrivals</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img">Image</div>
-                <div class="product-info">
-                    <div class="product-name">Infant Socks 5Pack</div>
-                    <div class="product-price">QAR 24.00</div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">Image</div>
-                <div class="product-info">
-                    <div class="product-name">Baby Shoes</div>
-                    <div class="product-price">QAR 45.00</div>
-                </div>
-            </div>
+  <!-- New Arrivals -->
+  <div class="section">
+    <h2 class="section-title">New Arrivals</h2>
+    <div class="products">
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1522771930-78848d929c19?w=400" alt="Baby Romper">
+        <div class="product-info">
+          <h4>Cute Cotton Romper</h4>
+          <div class="price">KSh 1,200</div>
         </div>
-    </div>
-
-    <!-- Categories -->
-    <div class="section">
-        <div class="category-grid">
-            <a href="shop.html" style="text-decoration: none;">
-                <div class="category-card">
-                    <h3>Casual Shoes</h3>
-                </div>
-            </a>
-            <a href="shop.html" style="text-decoration: none;">
-                <div class="category-card">
-                    <h3>Sports Shoes</h3>
-                </div>
-            </a>
-            <a href="shop.html" style="text-decoration: none;">
-                <div class="category-card">
-                    <h3>Tights</h3>
-                </div>
-            </a>
-            <a href="product.html" style="text-decoration: none;">
-                <div class="category-card">
-                    <h3>Socks</h3>
-                </div>
-            </a>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="Princess Dress">
+        <div class="product-info">
+          <h4>Princess Party Dress</h4>
+          <div class="price">KSh 1,800</div>
         </div>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=400" alt="Boys Set">
+        <div class="product-info">
+          <h4>Boys 2-Piece Set</h4>
+          <div class="price">KSh 1,500</div>
+        </div>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400" alt="Baby Shoes">
+        <div class="product-info">
+          <h4>Soft Baby Shoes</h4>
+          <div class="price">KSh 900</div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p><strong>Stay Social</strong></p>
-        <p style="margin: 15px 0;">
-            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">WhatsApp</a>
-        </p>
-        <p><a href="admin/admin.html">Admin Panel</a></p>
-        <p style="margin-top: 20px; font-size: 12px;">© 2026 Watoto Fashions. All rights reserved.</p>
-    </div>
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2026 Watoto Fashions - Made with ❤️ in Thika, Kenya</p>
+    <p>Call/WhatsApp: 07XX XXX XXX</p>
+  </div>
 
 </body>
 </html>
