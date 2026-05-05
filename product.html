@@ -1,285 +1,253 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infant Socks 5Pack - Watoto Fashions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #ffffff;
-        }
-        .header {
-            background: white;
-            padding: 15px 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .back-btn {
-            font-size: 24px;
-            text-decoration: none;
-            color: #333;
-        }
-        .logo {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .product-image {
-            width: 100%;
-            height: 400px;
-            background: #f8f8f8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 14px;
-        }
-        .container {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .product-title {
-            font-size: 22px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        .size-section {
-            margin: 25px 0;
-        }
-        .size-label {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        .size-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-        .size-btn {
-            padding: 12px;
-            border: 2px solid #ddd;
-            background: white;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .size-btn:hover {
-            border-color: #3498db;
-        }
-        .quantity-section {
-            margin: 25px 0;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .qty-label {
-            font-size: 14px;
-            color: #666;
-        }
-        .qty-controls {
-            display: flex;
-            align-items: center;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-        }
-        .qty-btn {
-            padding: 10px 15px;
-            background: white;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        .qty-input {
-            width: 50px;
-            text-align: center;
-            border: none;
-            font-size: 16px;
-            padding: 10px 0;
-        }
-        .delivery-info {
-            background: #e8f5e9;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            font-size: 14px;
-            color: #2e7d32;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin: 25px 0;
-            padding: 20px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            color: #666;
-        }
-        .section-divider {
-            border-top: 1px solid #eee;
-            margin: 25px 0;
-            padding-top: 25px;
-        }
-        .section-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            font-size: 14px;
-        }
-        .detail-item {
-            color: #666;
-        }
-        .detail-item strong {
-            color: #333;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .sticky-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 15px 20px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .price-display {
-            font-size: 22px;
-            font-weight: bold;
-            color: #e74c3c;
-        }
-        .add-to-cart {
-            background: #27ae60;
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .add-to-cart:hover {
-            background: #2ecc71;
-        }
-        .spacer {
-            height: 80px;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product - Watoto Fashions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #FFF9F0; color: #333; }
+
+  .header { background: white; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+  .logo { text-align: center; padding: 5px 0 15px 0; }
+  .nav { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+  .nav a { text-decoration: none; color: #555; padding: 8px 14px; border-radius: 20px; font-weight: 500; font-size: 14px; }
+  .nav a.active,.nav a:hover { background: #FF6B6B; color: white; }
+
+  .breadcrumb { padding: 15px 5%; font-size: 14px; color: #666; }
+  .breadcrumb a { color: #FF6B6B; text-decoration: none; }
+
+  .product-container { padding: 20px 5%; display: grid; grid-template-columns: 1fr; gap: 25px; }
+  .product-image { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  .product-image img { width: 100%; height: 400px; object-fit: cover; display: block; }
+
+  .product-details { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  .product-title { font-size: 24px; font-weight: 700; margin-bottom: 10px; color: #333; }
+  .product-price { font-size: 28px; color: #FF6B6B; font-weight: 700; margin-bottom: 20px; }
+  .old-price { text-decoration: line-through; color: #999; font-size: 18px; margin-left: 10px; }
+
+  .label { font-weight: 600; margin: 20px 0 10px 0; color: #333; }
+  .sizes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+  .size-btn { padding: 10px 18px; border: 2px solid #FFE66D; border-radius: 12px; background: white; cursor: pointer; font-weight: 600; transition: 0.3s; }
+  .size-btn:hover { border-color: #FF6B6B; }
+  .size-btn.active { background: #FF6B6B; color: white; border-color: #FF6B6B; }
+  .size-btn.disabled { opacity: 0.4; cursor: not-allowed; background: #f5f5f5; }
+
+  .quantity { display: flex; align-items: center; gap: 15px; margin: 20px 0; }
+  .qty-btn { width: 40px; height: 40px; border: 2px solid #FFE66D; background: white; border-radius: 10px; font-size: 20px; cursor: pointer; font-weight: 700; }
+  .qty-btn:hover { background: #FFE66D; }
+  .qty-input { width: 60px; height: 40px; text-align: center; border: 2px solid #FFE66D; border-radius: 10px; font-size: 16px; font-weight: 600; }
+
+  .buy-btn { width: 100%; background: #25D366; color: white; padding: 16px; border: none; border-radius: 15px; font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+  .buy-btn:hover { background: #1DA851; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+  .buy-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  .info-box { background: #D1F2EB; padding: 15px; border-radius: 12px; margin-top: 20px; font-size: 14px; }
+  .info-item { display: flex; align-items: center; gap: 8px; margin: 8px 0; color: #16A085; }
+
+  .description { margin-top: 25px; padding-top: 25px; border-top: 1px solid #eee; }
+  .description h3 { font-size: 18px; margin-bottom: 10px; }
+  .description p { color: #666; line-height: 1.6; }
+
+  .footer { background: #333; color: white; padding: 30px 5% 20px 5%; margin-top: 40px; text-align: center; }
+
+    @media (min-width: 768px) {
+    .product-container { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <a href="shop.html" class="back-btn">←</a>
-        <div class="logo">Watoto Fashions</div>
-        <div style="width: 24px;"></div>
+  <div class="header">
+    <div class="logo">
+      <svg width="220" height="60" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#FFE66D;stop-opacity:1" />
+        </linearGradient></defs>
+        <circle cx="25" cy="30" r="20" fill="url(#grad)"/>
+        <path d="M25 18 Q20 18 22 18 L18 32 Q18 36 22 36 L28 36 Q32 36 32 32 L32 22 Q30 18 25 18 Z M22 40 L22 45 Q22 48 25 48 Q28 48 28 45 L28 40" fill="white"/>
+        <text x="55" y="28" font-family="Poppins, sans-serif" font-size="22" font-weight="700" fill="#FF6B6B">Watoto</text>
+        <text x="55" y="48" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#4ECDC4" letter-spacing="2px">FASHIONS</text>
+      </svg>
     </div>
+    <div class="nav">
+      <a href="index.html">HOME</a>
+      <a href="shop.html">SHOP ALL</a>
+      <a href="shop.html#offers">OFFERS</a>
+    </div>
+  </div>
 
-    <!-- Product Image -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span id="breadcrumb-name">Product</span>
+  </div>
+
+  <div class="product-container">
     <div class="product-image">
-        Socks Image Here
+      <img id="product-img" src="" alt="Product Image">
     </div>
 
-    <div class="container">
-        <!-- Title -->
-        <h1 class="product-title">Infant Socks 5Pack</h1>
+    <div class="product-details">
+      <h1 class="product-title" id="product-name">Loading...</h1>
+      <div class="product-price">
+        <span id="product-price">KSh 0</span>
+        <span class="old-price" id="old-price" style="display:none;"></span>
+      </div>
 
-        <!-- Sizes -->
-        <div class="size-section">
-            <div class="size-label">Please Select Item Size</div>
-            <div class="size-grid">
-                <button class="size-btn">NB</button>
-                <button class="size-btn">0-3M</button>
-                <button class="size-btn">3-6M</button>
-                <button class="size-btn">6-12M</button>
-                <button class="size-btn">12-18M</button>
-                <button class="size-btn">18-24M</button>
-                <button class="size-btn">2-3Y</button>
-            </div>
-        </div>
+      <div class="label">Please Select Item Size:</div>
+      <div class="sizes" id="size-options"></div>
 
-        <!-- Quantity -->
-        <div class="quantity-section">
-            <span class="qty-label">Quantity:</span>
-            <div class="qty-controls">
-                <button class="qty-btn">-</button>
-                <input type="text" class="qty-input" value="1" readonly>
-                <button class="qty-btn">+</button>
-            </div>
-        </div>
+      <div class="label">Quantity:</div>
+      <div class="quantity">
+        <button class="qty-btn" onclick="changeQty(-1)">-</button>
+        <input type="number" class="qty-input" id="qty" value="1" min="1" max="10" readonly>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
 
-        <!-- Delivery -->
-        <div class="delivery-info">
-            ✓ Estimated Delivery time: 1-3 business days after order is placed
-        </div>
+      <button class="buy-btn" id="buyBtn" onclick="buyWhatsApp()" disabled>
+        <img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png" alt="WhatsApp">
+        Order via WhatsApp
+      </button>
 
-        <!-- Features -->
-        <div class="features">
-            <div class="feature">🚚 Fast delivery</div>
-            <div class="feature">↩️ 14 days easy returns</div>
-            <div class="feature">💵 Cash on delivery</div>
-            <div class="feature">💬 Customer support</div>
-        </div>
+      <div class="info-box">
+        <div class="info-item">✓ Estimated Delivery: 1-3 business days in Thika</div>
+        <div class="info-item">✓ 14 days easy returns</div>
+        <div class="info-item">✓ Free delivery for orders above KSh 3,000</div>
+      </div>
 
-        <!-- Product Details -->
-        <div class="section-divider">
-            <h2 class="section-title">Product Details</h2>
-            <div class="details-grid">
-                <div class="detail-item">
-                    <strong>Material</strong>
-                    80% Cotton 18% Nylon 2% Elastane
-                </div>
-                <div class="detail-item">
-                    <strong>Design</strong>
-                    Casual
-                </div>
-                <div class="detail-item">
-                    <strong>Occasion</strong>
-                    Regular
-                </div>
-                <div class="detail-item">
-                    <strong>Brand</strong>
-                    Watoto Fashions
-                </div>
-            </div>
-        </div>
+      <div class="description">
+        <h3>Product Description</h3>
+        <p id="product-desc">100% cotton, soft and comfortable for your little one. Machine washable. Perfect for everyday wear.</p>
+      </div>
     </div>
+  </div>
 
-    <!-- Spacer for sticky footer -->
-    <div class="spacer"></div>
+  <div class="footer">
+    <p>© 2026 Watoto Fashions - Made with ❤️ in Thika, Kenya</p>
+  </div>
 
-    <!-- Sticky Add to Cart -->
-    <div class="sticky-footer">
-        <div class="price-display">QAR 24.00</div>
-        <button class="add-to-cart">ADD TO BAG</button>
-    </div>
+  <script>
+    // PRODUCT DATABASE - ADMIN WEKA PRODUCTS HAPA
+    const products = {
+      socks: {
+        name: "Infant Socks 5-Pack",
+        price: 500,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600",
+        sizes: ["NB", "0-3M", "3-6M", "6-12M", "12-18M"],
+        availableSizes: ["0-3M", "3-6M", "6-12M"],
+        desc: "Super soft cotton socks. 5 pairs per pack. Anti-slip grip. Perfect for 0-2 years."
+      },
+      tshirt: {
+        name: "Baby T-Shirt Blue",
+        price: 800,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1522771930-78848d929c19?w=600",
+        sizes: ["0-3M", "3-6M", "6-12M", "12-18M", "18-24M", "2-3Y"],
+        availableSizes: ["6-12M", "12-18M", "18-24M"],
+        desc: "100% cotton t-shirt. Breathable and gentle on baby skin. Machine washable."
+      },
+      dress: {
+        name: "Girl Dress Pink",
+        price: 1800,
+        oldPrice: 2400,
+        image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600",
+        sizes: ["2-3Y", "3-4Y", "4-5Y", "5-6Y", "7-8Y"],
+        availableSizes: ["3-4Y", "4-5Y", "5-6Y"],
+        desc: "Beautiful party dress for little princesses. Cotton lining. Perfect for birthdays and photoshoots."
+      },
+      shorts: {
+        name: "Boy Shorts Cotton",
+        price: 1000,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=600",
+        sizes: ["2-3Y", "3-4Y", "4-5Y", "5-6Y", "7-8Y", "9-10Y"],
+        availableSizes: ["3-4Y", "4-5Y", "5-6Y", "7-8Y"],
+        desc: "Durable cotton shorts with elastic waist. Perfect for playtime and school."
+      },
+      romper: {
+        name: "Cute Cotton Romper",
+        price: 1200,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1522771930-78848d929c19?w=600",
+        sizes: ["NB", "0-3M", "3-6M", "6-12M"],
+        availableSizes: ["0-3M", "3-6M"],
+        desc: "Adorable romper with snap buttons. Easy diaper changes. Ultra soft cotton."
+      }
+    };
+
+    let selectedSize = null;
+    let currentProduct = null;
+
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id') || 'socks';
+      currentProduct = products[productId];
+
+      if (!currentProduct) {
+        document.getElementById('product-name').textContent = 'Product Not Found';
+        return;
+      }
+
+      document.title = currentProduct.name + " - Watoto Fashions";
+      document.getElementById('breadcrumb-name').textContent = currentProduct.name;
+      document.getElementById('product-name').textContent = currentProduct.name;
+      document.getElementById('product-price').textContent = KSh ${currentProduct.price.toLocaleString()};
+      document.getElementById('product-img').src = currentProduct.image;
+      document.getElementById('product-desc').textContent = currentProduct.desc;
+
+      if (currentProduct.oldPrice) {
+        document.getElementById('old-price').textContent = KSh ${currentProduct.oldPrice.toLocaleString()};
+        document.getElementById('old-price').style.display = 'inline';
+      }
+
+      const sizeContainer = document.getElementById('size-options');
+      currentProduct.sizes.forEach(size => {
+        const btn = document.createElement('button');
+        btn.className = 'size-btn';
+        btn.textContent = size;
+
+        if (!currentProduct.availableSizes.includes(size)) {
+          btn.classList.add('disabled');
+          btn.disabled = true;
+        } else {
+          btn.onclick = () => selectSize(size, btn);
+        }
+
+        sizeContainer.appendChild(btn);
+      });
+    };
+
+    function selectSize(size, btn) {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSize = size;
+      document.getElementById('buyBtn').disabled = false;
+    }
+
+    function changeQty(change) {
+      const qtyInput = document.getElementById('qty');
+      let qty = parseInt(qtyInput.value) + change;
+      if (qty < 1) qty = 1;
+      if (qty > 10) qty = 10;
+      qtyInput.value = qty;
+    }
+
+    function buyWhatsApp() {
+      if (!selectedSize) {
+        alert('Please select a size first!');
+        return;
+      }
+
+      const qty = document.getElementById('qty').value;
+      const total = currentProduct.price * qty;
+      const msg = Hi Watoto Fashions! 👋\n\nI want to order:\n📦 ${currentProduct.name}\n📏 Size: ${selectedSize}\n🔢 Quantity: ${qty}\n💰 Total: KSh ${total.toLocaleString()}\n\nPlease confirm availability.;
+
+      // BADILISHA HII NUMBER UWEKE YAKO
+      const phone = "2547XXXXXXXX";
+      window.open(https://wa.me/${phone}?text=${encodeURIComponent(msg)}, '_blank');
+    }
+  </script>
 
 </body>
 </html>
