@@ -1,183 +1,257 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Watoto Fashions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #ffffff;
-        }
-        .header {
-            background: white;
-            padding: 15px 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .breadcrumb {
-            padding: 15px 20px;
-            font-size: 14px;
-            color: #666;
-            background: #f8f8f8;
-        }
-        .breadcrumb a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .page-title {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        @media (min-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        .product-img {
-            width: 100%;
-            height: 200px;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 12px;
-        }
-        .product-info {
-            padding: 12px;
-        }
-        .product-name {
-            font-size: 13px;
-            color: #333;
-            margin-bottom: 8px;
-            height: 36px;
-            overflow: hidden;
-        }
-        .product-price {
-            font-size: 16px;
-            font-weight: bold;
-            color: #e74c3c;
-        }
-        .product-price .old {
-            font-size: 12px;
-            color: #999;
-            text-decoration: line-through;
-            margin-right: 5px;
-        }
-        .footer {
-            background: #2c3e50;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        .footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop All - Watoto Fashions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #FFF9F0; color: #333; }
+    
+    /* Header - Same as Homepage */
+    .header { background: white; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .logo { text-align: center; padding: 5px 0 15px 0; }
+    .search { margin: 0 0 15px 0; }
+    .search input { width: 100%; padding: 12px 20px; border: 2px solid #FFE66D; border-radius: 25px; font-size: 16px; background: #FFFDF7; }
+    .nav { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .nav a { text-decoration: none; color: #555; padding: 8px 14px; border-radius: 20px; font-weight: 500; font-size: 14px; transition: 0.3s; }
+    .nav a.active, .nav a:hover { background: #FF6B6B; color: white; }
+    
+    /* Breadcrumb */
+    .breadcrumb { padding: 15px 5%; font-size: 14px; color: #666; }
+    .breadcrumb a { color: #FF6B6B; text-decoration: none; }
+    
+    /* Filters */
+    .filters { padding: 20px 5%; background: white; margin: 0 5% 20px 5%; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .filter-title { font-weight: 700; margin-bottom: 12px; color: #333; }
+    .filter-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-tag { padding: 8px 16px; border: 2px solid #FFE66D; border-radius: 20px; font-size: 13px; cursor: pointer; transition: 0.3s; }
+    .filter-tag.active, .filter-tag:hover { background: #FF6B6B; color: white; border-color: #FF6B6B; }
+    
+    /* Products Grid */
+    .section { padding: 20px 5%; }
+    .section-title { text-align: center; font-size: 26px; color: #333; margin-bottom: 25px; font-weight: 700; }
+    .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .product { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; }
+    .product:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .product img { width: 100%; height: 200px; object-fit: cover; background: #f5f5f5; display: block; }
+    .product-info { padding: 12px; }
+    .product h4 { font-size: 14px; color: #333; margin-bottom: 5px; font-weight: 600; }
+    .price { color: #FF6B6B; font-weight: 700; font-size: 16px; }
+    .old-price { text-decoration: line-through; color: #999; font-size: 13px; margin-left: 5px; }
+    .badge { position: absolute; top: 10px; right: 10px; background: #4ECDC4; color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+    
+    /* Footer - Same as Homepage */
+    .footer { background: #333; color: white; padding: 30px 5% 20px 5%; margin-top: 40px; }
+    .footer-content { text-align: center; margin-bottom: 20px; }
+    .social-icons { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+    .social-icons a { background: #444; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+    .social-icons a:hover { background: #FF6B6B; }
+    .social-icons img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+    .copyright { border-top: 1px solid #444; padding-top: 15px; font-size: 12px; opacity: 0.6; text-align: center; }
+    
+    @media (min-width: 768px) {
+      .products { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <div class="logo">Watoto Fashions</div>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <svg width="220" height="60" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFE66D;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <circle cx="25" cy="30" r="20" fill="url(#grad)"/>
+        <path d="M25 18 Q20 18 22 18 L18 32 Q18 36 22 36 L28 36 Q32 36 32 32 L32 22 Q30 18 25 18 Z M22 40 L22 45 Q22 48 25 48 Q28 48 28 45 L28 40" fill="white"/>
+        <text x="55" y="28" font-family="Poppins, sans-serif" font-size="22" font-weight="700" fill="#FF6B6B">Watoto</text>
+        <text x="55" y="48" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#4ECDC4" letter-spacing="2px">FASHIONS</text>
+      </svg>
     </div>
-
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <a href="index.html">Home</a> / Shop
+    <div class="search">
+      <input type="text" placeholder="Tafuta romper, dress, shoes..." id="searchBox" onkeyup="searchProducts()" />
     </div>
+    <div class="nav">
+      <a href="index.html">HOME</a>
+      <a href="shop.html" class="active">SHOP ALL</a>
+      <a href="#offers">OFFERS</a>
+      <a href="#boys">BOYS</a>
+      <a href="#girls">GIRLS</a>
+      <a href="#baby">BABY</a>
+    </div>
+  </div>
 
-    <!-- Products -->
-    <div class="container">
-        <h1 class="page-title">All Products</h1>
-        
-        <div class="product-grid">
-            <!-- Product 1 -->
-            <a href="product.html" style="text-decoration: none;">
-                <div class="product-card">
-                    <div class="product-img">Socks Image</div>
-                    <div class="product-info">
-                        <div class="product-name">Infant Socks 5Pack</div>
-                        <div class="product-price">QAR 24.00</div>
-                    </div>
-                </div>
-            </a>
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> / Shop All
+  </div>
 
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-img">Shirt Image</div>
-                <div class="product-info">
-                    <div class="product-name">Baby T-Shirt Blue</div>
-                    <div class="product-price">QAR 35.00</div>
-                </div>
-            </div>
+  <!-- Filters -->
+  <div class="filters">
+    <div class="filter-title">Filter By Category:</div>
+    <div class="filter-tags">
+      <div class="filter-tag active" onclick="filterProducts('all')">All</div>
+      <div class="filter-tag" onclick="filterProducts('newborn')">Newborn</div>
+      <div class="filter-tag" onclick="filterProducts('baby')">Baby</div>
+      <div class="filter-tag" onclick="filterProducts('boys')">Boys</div>
+      <div class="filter-tag" onclick="filterProducts('girls')">Girls</div>
+      <div class="filter-tag" onclick="filterProducts('offers')">Offers</div>
+      <div class="filter-tag" onclick="filterProducts('accessories')">Accessories</div>
+    </div>
+  </div>
 
-            <!-- Product 3 -->
-            <div class="product-card">
-                <div class="product-img">Dress Image</div>
-                <div class="product-info">
-                    <div class="product-name">Girl Dress Pink</div>
-                    <div class="product-price">QAR 55.00</div>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-img">Shorts Image</div>
-                <div class="product-info">
-                    <div class="product-name">Boy Shorts Cotton</div>
-                    <div class="product-price">QAR 30.00</div>
-                </div>
-            </div>
-
-            <!-- Ongeza products zingine hapa -->
-            
+  <!-- All Products -->
+  <div class="section">
+    <h2 class="section-title">All Products</h2>
+    <div class="products" id="productGrid">
+      
+      <div class="product" data-category="accessories">
+        <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400" alt="Infant Socks">
+        <div class="product-info">
+          <h4>Infant Socks 5-Pack</h4>
+          <div class="price">KSh 500</div>
         </div>
-    </div>
+      </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p><a href="admin/admin.html">Admin Panel</a></p>
-        <p style="margin-top: 20px; font-size: 12px;">© 2026 Watoto Fashions</p>
+      <div class="product" data-category="baby">
+        <div class="badge">NEW</div>
+        <img src="https://images.unsplash.com/photo-1522771930-78848d929c19?w=400" alt="Baby T-Shirt">
+        <div class="product-info">
+          <h4>Baby T-Shirt Blue</h4>
+          <div class="price">KSh 800</div>
+        </div>
+      </div>
+
+      <div class="product" data-category="girls">
+        <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="Girl Dress">
+        <div class="product-info">
+          <h4>Girl Dress Pink</h4>
+          <div class="price">KSh 1,800</div>
+        </div>
+      </div>
+
+      <div class="product" data-category="boys">
+        <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=400" alt="Boy Shorts">
+        <div class="product-info">
+          <h4>Boy Shorts Cotton</h4>
+          <div class="price">KSh 1,000</div>
+        </div>
+      </div>
+
+      <div class="product" data-category="newborn">
+        <img src="https://images.unsplash.com/photo-1522771930-78848d929c19?w=400" alt="Newborn Romper">
+        <div class="product-info">
+          <h4>Cute Cotton Romper</h4>
+          <div class="price">KSh 1,200</div>
+        </div>
+      </div>
+
+      <div class="product" data-category="offers">
+        <div class="badge" style="background:#FF6B6B;">-30%</div>
+        <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="Party Dress">
+        <div class="product-info">
+          <h4>Princess Party Dress</h4>
+          <div class="price">KSh 1,260 <span class="old-price">KSh 1,800</span></div>
+        </div>
+      </div>
+
+      <div class="product" data-category="boys">
+        <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=400" alt="Boys Set">
+        <div class="product-info">
+          <h4>Boys 2-Piece Set</h4>
+          <div class="price">KSh 1,500</div>
+        </div>
+      </div>
+
+      <div class="product" data-category="accessories">
+        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400" alt="Baby Shoes">
+        <div class="product-info">
+          <h4>Soft Baby Shoes</h4>
+          <div class="price">KSh 900</div>
+        </div>
+      </div>
+
     </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-content">
+      <p style="font-size:18px; font-weight:600; margin-bottom:15px;">Watoto Fashions</p>
+      <p>Call/WhatsApp: 07XX XXX XXX</p>
+      <p>Location: Thika Town, Kenya</p>
+      
+      <div class="social-icons">
+        <a href="https://wa.me/2547XXXXXXXX" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/whatsapp.png" alt="WhatsApp">
+        </a>
+        <a href="https://facebook.com/watotofashions" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/facebook-new.png" alt="Facebook">
+        </a>
+        <a href="https://instagram.com/watotofashions" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/instagram-new.png" alt="Instagram">
+        </a>
+        <a href="https://tiktok.com/@watotofashions" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/tiktok.png" alt="TikTok">
+        </a>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2026 Watoto Fashions - Made with ❤️ in Thika, Kenya</p>
+    </div>
+  </div>
+
+  <script>
+    // Filter Products
+    function filterProducts(category) {
+      const products = document.querySelectorAll('.product');
+      const tags = document.querySelectorAll('.filter-tag');
+      
+      tags.forEach(tag => tag.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      products.forEach(product => {
+        if (category === 'all' || product.dataset.category === category) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    // Search Products
+    function searchProducts() {
+      const input = document.getElementById('searchBox').value.toLowerCase();
+      const products = document.querySelectorAll('.product');
+      
+      products.forEach(product => {
+        const name = product.querySelector('h4').textContent.toLowerCase();
+        if (name.includes(input)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    // Link homepage categories to shop filters
+    window.onload = function() {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        filterProducts(hash);
+        document.querySelectorAll('.filter-tag').forEach(tag => {
+          if (tag.textContent.toLowerCase() === hash) tag.classList.add('active');
+          else tag.classList.remove('active');
+        });
+      }
+    }
+  </script>
 
 </body>
 </html>
