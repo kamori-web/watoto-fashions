@@ -3,7 +3,7 @@ backend:
   repo: kamori-web/watoto-fashions
   branch: main
   base_url: https://api.github.com
-  auth_endpoint: https://decap-oauth.pages.dev
+  auth_endpoint: https://github-oauth-login.netlify.app
 
 media_folder: "images"
 public_folder: "/images"
