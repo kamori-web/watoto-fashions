@@ -2,6 +2,8 @@ backend:
   name: github
   repo: kamori-web/watoto-fashions
   branch: main
+  base_url: https://api.github.com
+  auth_endpoint: https://decap-oauth.pages.dev
 
 media_folder: "images"
 public_folder: "/images"
