@@ -26,13 +26,17 @@
     .btn { background: #4ECDC4; color: white; padding: 14px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(78,205,196,0.4); transition: 0.3s; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(78,205,196,0.6); }
     
+    /* Offers Banner */
+    .offers-banner { background: #4ECDC4; color: white; padding: 12px 5%; text-align: center; font-weight: 600; font-size: 15px; }
+    .offers-banner span { background: #FF6B6B; padding: 4px 12px; border-radius: 15px; margin: 0 5px; }
+    
     /* Section */
     .section { padding: 35px 5%; }
     .section-title { text-align: center; font-size: 26px; color: #333; margin-bottom: 25px; font-weight: 700; }
     
     /* Categories */
     .categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .cat-card { border-radius: 20px; padding: 20px 10px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.06); text-decoration: none; transition: 0.3s; }
+    .cat-card { border-radius: 20px; padding: 20px 10px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.06); text-decoration: none; transition: 0.3s; display: block; }
     .cat-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
     .cat-card img { width: 60px; height: 60px; margin-bottom: 8px; }
     .cat-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
@@ -40,16 +44,24 @@
     
     /* Products */
     .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .product { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+    .product { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; position: relative; }
     .product:hover { transform: translateY(-3px); }
-    .product img { width: 100%; height: 180px; object-fit: cover; background: #f5f5f5; }
+    .product img { width: 100%; height: 180px; object-fit: cover; background: #f5f5f5; display: block; }
     .product-info { padding: 12px; }
     .product h4 { font-size: 14px; color: #333; margin-bottom: 5px; font-weight: 600; }
     .price { color: #FF6B6B; font-weight: 700; font-size: 16px; }
+    .old-price { text-decoration: line-through; color: #999; font-size: 13px; margin-left: 5px; }
+    .offer-badge { position: absolute; top: 10px; left: 10px; background: #FF6B6B; color: white; padding: 5px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; }
     
     /* Footer */
-    .footer { background: #333; color: white; text-align: center; padding: 25px 5%; margin-top: 30px; }
-    .footer p { font-size: 14px; opacity: 0.8; }
+    .footer { background: #333; color: white; padding: 30px 5% 20px 5%; margin-top: 30px; }
+    .footer-content { text-align: center; margin-bottom: 20px; }
+    .footer p { font-size: 14px; opacity: 0.8; margin: 8px 0; }
+    .social-icons { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+    .social-icons a { background: #444; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+    .social-icons a:hover { background: #FF6B6B; transform: translateY(-3px); }
+    .social-icons img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+    .copyright { border-top: 1px solid #444; padding-top: 15px; font-size: 12px; opacity: 0.6; }
     
     @media (min-width: 768px) {
       .categories { grid-template-columns: repeat(3, 1fr); }
@@ -59,6 +71,11 @@
   </style>
 </head>
 <body>
+  <!-- Offers Banner -->
+  <div class="offers-banner">
+    🎉 FREE DELIVERY for orders above <span>KSh 3,000</span> in Thika! 🎉
+  </div>
+
   <!-- Header -->
   <div class="header">
     <div class="logo">
@@ -81,6 +98,7 @@
     <div class="nav">
       <a href="index.html" class="active">HOME</a>
       <a href="shop.html">SHOP ALL</a>
+      <a href="shop.html#offers">OFFERS</a>
       <a href="shop.html#boys">BOYS</a>
       <a href="shop.html#girls">GIRLS</a>
       <a href="shop.html#baby">BABY</a>
@@ -138,23 +156,33 @@
     </div>
   </div>
 
+  <!-- Hot Offers -->
+  <div class="section" style="background:#FFF5F5;">
+    <h2 class="section-title">🔥 Hot Offers - 30% OFF</h2>
+    <div class="products">
+      <div class="product">
+        <div class="offer-badge">-30%</div>
+        <img src="https://images.unsplash.com/photo-1522771930-78848d929c19?w=400" alt="Baby Romper">
+        <div class="product-info">
+          <h4>Cute Cotton Romper</h4>
+          <div class="price">KSh 840 <span class="old-price">KSh 1,200</span></div>
+        </div>
+      </div>
+      <div class="product">
+        <div class="offer-badge">-30%</div>
+        <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="Princess Dress">
+        <div class="product-info">
+          <h4>Princess Party Dress</h4>
+          <div class="price">KSh 1,260 <span class="old-price">KSh 1,800</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- New Arrivals -->
   <div class="section">
     <h2 class="section-title">New Arrivals</h2>
     <div class="products">
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1522771930-78848d929c19?w=400" alt="Baby Romper">
-        <div class="product-info">
-          <h4>Cute Cotton Romper</h4>
-          <div class="price">KSh 1,200</div>
-        </div>
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="Princess Dress">
-        <div class="product-info">
-          <h4>Princess Party Dress</h4>
-          <div class="price">KSh 1,800</div>
-        </div>
-      </div>
       <div class="product">
         <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=400" alt="Boys Set">
         <div class="product-info">
@@ -169,13 +197,48 @@
           <div class="price">KSh 900</div>
         </div>
       </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400" alt="Baby Onesie">
+        <div class="product-info">
+          <h4>3-Pack Baby Onesies</h4>
+          <div class="price">KSh 2,000</div>
+        </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=400" alt="Girls Skirt">
+        <div class="product-info">
+          <h4>Floral Girls Skirt</h4>
+          <div class="price">KSh 1,100</div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Footer -->
   <div class="footer">
-    <p>© 2026 Watoto Fashions - Made with ❤️ in Thika, Kenya</p>
-    <p>Call/WhatsApp: 07XX XXX XXX</p>
+    <div class="footer-content">
+      <p style="font-size:18px; font-weight:600; margin-bottom:15px;">Watoto Fashions</p>
+      <p>Call/WhatsApp: 07XX XXX XXX</p>
+      <p>Location: Thika Town, Kenya</p>
+      
+      <div class="social-icons">
+        <a href="https://wa.me/2547XXXXXXXX" target="_blank" title="WhatsApp">
+          <img src="https://img.icons8.com/ios-filled/50/whatsapp.png" alt="WhatsApp">
+        </a>
+        <a href="https://facebook.com/watotofashions" target="_blank" title="Facebook">
+          <img src="https://img.icons8.com/ios-filled/50/facebook-new.png" alt="Facebook">
+        </a>
+        <a href="https://instagram.com/watotofashions" target="_blank" title="Instagram">
+          <img src="https://img.icons8.com/ios-filled/50/instagram-new.png" alt="Instagram">
+        </a>
+        <a href="https://tiktok.com/@watotofashions" target="_blank" title="TikTok">
+          <img src="https://img.icons8.com/ios-filled/50/tiktok.png" alt="TikTok">
+        </a>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2026 Watoto Fashions - Made with ❤️ in Thika, Kenya</p>
+    </div>
   </div>
 
 </body>
