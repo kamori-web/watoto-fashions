@@ -6,36 +6,38 @@
   <title>Content Manager</title>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@2.10.192/dist/decap-cms.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/decap-cms@2.10.192/dist/decap-cms.js"></script>
   <script>
-    CMS.init({
-      config: {
-        backend: {
-          name: 'github',
-          repo: 'kamori-web/watoto-fashions',
-          branch: 'main',
-          auth_endpoint: 'https://github-oauth-login.netlify.app'
-        },
-        media_folder: 'images',
-        public_folder: '/images',
-        collections: [
-          {
-            name: 'products',
-            label: 'Products',
-            folder: '_products',
-            create: true,
-            slug: '{{slug}}',
-            fields: [
-              {label: 'Title', name: 'title', widget: 'string'},
-              {label: 'Price', name: 'price', widget: 'number'},
-              {label: 'Image', name: 'image', widget: 'image'},
-              {label: 'Category', name: 'category', widget: 'string'},
-              {label: 'Description', name: 'body', widget: 'markdown'}
-            ]
-          }
-        ]
-      }
-    })
+    window.onload = function() {
+      CMS.init({
+        config: {
+          backend: {
+            name: 'github',
+            repo: 'kamori-web/watoto-fashions',
+            branch: 'main',
+            auth_endpoint: 'https://github-oauth-login.netlify.app'
+          },
+          media_folder: 'images',
+          public_folder: '/images',
+          collections: [
+            {
+              name: 'products',
+              label: 'Products',
+              folder: '_products',
+              create: true,
+              slug: '{{slug}}',
+              fields: [
+                {label: 'Title', name: 'title', widget: 'string'},
+                {label: 'Price', name: 'price', widget: 'number'},
+                {label: 'Image', name: 'image', widget: 'image'},
+                {label: 'Category', name: 'category', widget: 'string'},
+                {label: 'Description', name: 'body', widget: 'markdown'}
+              ]
+            }
+          ]
+        }
+      });
+    }
   </script>
 </body>
 </html>
